@@ -1,0 +1,74 @@
+{
+  "pluginAlias": "HomebridgeShSwitch",
+  "pluginType": "platform",
+  "singular": true,
+  "schema": {
+    "type": "object",
+    "properties": {
+      "switches": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "description": "Name of the switch.",
+              "type": "string",
+              "minLength": 1
+            },
+            "debug": {
+              "description": "Activates the debug log.",
+              "type": "boolean"
+            },
+            "pingInterval": {
+              "description": "Interval to trigger the ping command in seconds.",
+              "type": "number",
+              "minimum": 1,
+              "multipleOf": 1
+            },
+            "pingTimeout": {
+              "description": "Timeout in seconds to pause ping calls after on or off command has been called.",
+              "type": "number",
+              "minimum": 1,
+              "multipleOf": 1
+            },
+            "matchers": {
+              "description": "Regular expressions to check stdout data of the shells to determine the current state of the switch.",
+              "type": "object",
+              "properties": {
+                "on": {
+                  "description": "Regular expression to check for 'on' state.",
+                  "type": ["string", "array"]
+                },
+                "off": {
+                  "description": "Regular expression to check for 'off' state.",
+                  "type": ["string", "array"]
+                }
+              },
+              "required": ["on", "off"]
+            },
+            "commands": {
+              "startup": {
+                "description": "Command(s) to execute once upon initialization of the accessory.",
+                "type": ["string", "array"]
+              },
+              "ping": {
+                "description": "Command(s) to execute when homekit requests a status update or 'pingInterval' is triggered.",
+                "type": ["string", "array"]
+              },
+              "on": {
+                "description": "Command(s) to execute when homekit requests to turn the switch on.",
+                "type": ["string", "array"]
+              },
+              "off": {
+                "description": "Command(s) to execute when homekit requests to turn the switch off.",
+                "type": ["string", "array"]
+              }
+            }
+          },
+          "required": ["name", "matchers", "commands"]
+        }
+      }
+    },
+    "required": ["switches"]
+  }
+}
