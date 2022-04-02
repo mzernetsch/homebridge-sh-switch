@@ -33,13 +33,13 @@ You need to define `commands` and `matchers` in the configuration to interact wi
       "name": "TV",
       "pingInterval": 1,
       "matchers": {
-        "on": "power status: on",
-        "off": "power status: standby"
+        "on": ["power status: on"],
+        "off": ["power status: standby"]
       },
       "commands": {
-        "on": "echo 'on 0' | cec-client",
-        "off": "echo 'standby 0' | cec-client",
-        "ping": "echo 'pow 0' | cec-client"
+        "on": ["echo 'on 0' | cec-client"],
+        "off": ["echo 'standby 0' | cec-client"],
+        "ping": ["echo 'pow 0' | cec-client"]
       }
     }
   ]
@@ -58,13 +58,15 @@ You need to define `commands` and `matchers` in the configuration to interact wi
       "pingInterval": 5,
       "pingTimeout": 10,
       "matchers": {
-        "on": " 0% packet loss",
+        "on": [" 0% packet loss"],
         "off": [" 100% packet loss", "Name or service not known"]
       },
       "commands": {
-        "on": "ssh -f user@Desktop-SEZ2QAP 'echo'",
-        "off": "ssh -f user@Desktop-SEZ2QAP '%windir%\\System32\\rundll32.exe powrprof.dll,SetSuspendState 0,1,0'",
-        "ping": "ping -W 1 -q -c 1 Desktop-SEZ2QAP"
+        "on": ["ssh -f user@Desktop-SEZ2QAP 'echo'"],
+        "off": [
+          "ssh -f user@Desktop-SEZ2QAP '%windir%\\System32\\rundll32.exe powrprof.dll,SetSuspendState 0,1,0'"
+        ],
+        "ping": ["ping -W 1 -q -c 1 Desktop-SEZ2QAP"]
       }
     }
   ]

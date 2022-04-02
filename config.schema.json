@@ -37,32 +37,55 @@
               "properties": {
                 "on": {
                   "description": "Regular expression to check for 'on' state on stdout.",
-                  "type": ["string", "array"]
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 },
                 "off": {
                   "description": "Regular expression to check for 'off' state on stdout.",
-                  "type": ["string", "array"]
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
                 }
               },
               "required": ["on", "off"]
             },
             "commands": {
-              "startup": {
-                "description": "Command(s) to execute once upon initialization of the accessory.",
-                "type": ["string", "array"]
+              "description": "Regular expressions to check stdout data of the shells to determine the current state of the switch.",
+              "type": "object",
+              "properties": {
+                "startup": {
+                  "description": "Command(s) to execute once upon initialization of the accessory.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "ping": {
+                  "description": "Command(s) to execute when homekit requests a status update or 'pingInterval' is triggered.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "on": {
+                  "description": "Command(s) to execute when homekit requests to turn the switch on.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "off": {
+                  "description": "Command(s) to execute when homekit requests to turn the switch off.",
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
               },
-              "ping": {
-                "description": "Command(s) to execute when homekit requests a status update or 'pingInterval' is triggered.",
-                "type": ["string", "array"]
-              },
-              "on": {
-                "description": "Command(s) to execute when homekit requests to turn the switch on.",
-                "type": ["string", "array"]
-              },
-              "off": {
-                "description": "Command(s) to execute when homekit requests to turn the switch off.",
-                "type": ["string", "array"]
-              }
+              "required": ["on", "off"]
             }
           },
           "required": ["name", "matchers", "commands"]

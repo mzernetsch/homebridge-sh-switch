@@ -128,11 +128,11 @@ export class ShellSwitchAccessory implements AccessoryPlugin {
         this.log(stdout);
       }
 
-      this.handleShellResult(stdout);
+      this.handleShellCommandResult(stdout);
     });
   }
 
-  private handleShellResult(stdout: Buffer) {
+  private handleShellCommandResult(stdout: Buffer) {
     const currentStatus = this.switchService.getCharacteristic(
       this.hap.Characteristic.On
     ).value;
