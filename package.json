@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sh-switch",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Define homebridge switch accessories using shell commands.",
   "keywords": [
     "homebridge-plugin",
@@ -14,7 +14,8 @@
     "build": "npm run clean && tsc",
     "lint": "prettier -c ./src/**/*",
     "format": "prettier -w ./src/**/*",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "semantic-release": "semantic-release"
   },
   "author": "Marco Zernetsch <m.zernetsch@gmail.com>",
   "license": "ISC",
@@ -27,6 +28,16 @@
     "homebridge": "^1.3.4",
     "prettier": "^2.4.0",
     "rimraf": "^3.0.2",
-    "typescript": "^4.4.3"
+    "typescript": "^4.4.3",
+    "semantic-release": "^19.0.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mzernetsch/homebridge-sh-switch.git"
+  },
+  "release": {
+    "branches": [
+      "main"
+    ]
   }
 }
