@@ -36,11 +36,11 @@
               "type": "object",
               "properties": {
                 "on": {
-                  "description": "Regular expression to check for 'on' state.",
+                  "description": "Regular expression to check for 'on' state on stdout.",
                   "type": ["string", "array"]
                 },
                 "off": {
-                  "description": "Regular expression to check for 'off' state.",
+                  "description": "Regular expression to check for 'off' state on stdout.",
                   "type": ["string", "array"]
                 }
               },

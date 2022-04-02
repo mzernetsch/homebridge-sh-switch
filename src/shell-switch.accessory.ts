@@ -117,10 +117,18 @@ export class ShellSwitchAccessory implements AccessoryPlugin {
         this.log(`Executing command: "${command}".`);
       }
 
+      let stdout;
       try {
-        const stdout = execSync(command);
-        this.handleShellResult(stdout);
-      } catch (error) {}
+        stdout = execSync(command);
+      } catch (error: any) {
+        stdout = error.stdout;
+      }
+
+      if (this.config.debug) {
+        this.log(stdout);
+      }
+
+      this.handleShellResult(stdout);
     });
   }
 

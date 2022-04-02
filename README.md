@@ -59,7 +59,7 @@ You need to define `commands` and `matchers` in the configuration to interact wi
       "pingTimeout": 10,
       "matchers": {
         "on": " 0% packet loss",
-        "off": " 100% packet loss"
+        "off": [" 100% packet loss", "Name or service not known"]
       },
       "commands": {
         "on": "ssh -f user@Desktop-SEZ2QAP 'echo'",
