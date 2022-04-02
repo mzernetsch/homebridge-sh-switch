@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sh-switch",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "Define homebridge switch accessories using shell commands.",
   "keywords": [
     "homebridge-plugin",
