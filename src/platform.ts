@@ -23,7 +23,7 @@ export class ShellSwitchStaticPlatform implements StaticPlatformPlugin {
 
   accessories(callback: (foundAccessories: AccessoryPlugin[]) => void): void {
     callback(
-      this.config.switches.map(
+      this.config?.switches.map(
         (switchConfig: ShellSwitchAccessoryConfig) =>
           new ShellSwitchAccessory(this.api.hap, this.log, switchConfig)
       )
